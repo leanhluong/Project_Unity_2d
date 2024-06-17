@@ -27,9 +27,9 @@ public class PlayerController : MonoBehaviour
     public float dashTime;
     private float _dashTime;
     bool isDashing = false;
-    public GameObject ghostEffect;
-    public float timeGhost;
-    public Coroutine dashEffectCoroutine;
+    //public GameObject ghostEffect;
+    //public float timeGhost;
+    //public Coroutine dashEffectCoroutine;
 
     void Start()
     {
@@ -65,13 +65,13 @@ public class PlayerController : MonoBehaviour
             speed += dashBoost;
             _dashTime = dashTime;
             isDashing = true;
-            StartDashEffect();
+         
         } 
         if(_dashTime <= 0 && isDashing == true)
         {
             speed -= dashBoost;
             isDashing = false ;
-            StopDashEffect();
+         
         } else
         {
             _dashTime -= Time.deltaTime;
@@ -148,25 +148,25 @@ public class PlayerController : MonoBehaviour
         Ondeath.RemoveListener(Death);
     }
 
-    void StopDashEffect()
-    {
-        if(dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
-    }
+    //void StopDashEffect()
+    //{
+    //    if(dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
+    //}
 
-    void StartDashEffect()
-    {
-        if(dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
-        dashEffectCoroutine = StartCoroutine(DashEffectCoroutine());
-    }
+    //void StartDashEffect()
+    //{
+    //    if(dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
+    //    dashEffectCoroutine = StartCoroutine(DashEffectCoroutine());
+    //}
 
-    IEnumerator DashEffectCoroutine()
-    {
-        while (true)
-        {
-            GameObject ghost = Instantiate(ghostEffect, transform.position, transform.rotation);
+    //IEnumerator DashEffectCoroutine()
+    //{
+    //    while (true)
+    //    {
+    //        GameObject ghost = Instantiate(ghostEffect, transform.position, transform.rotation);
 
-            yield return new WaitForSeconds(timeGhost);
-        }
-    }
+    //        yield return new WaitForSeconds(timeGhost);
+    //    }
+    //}
 
 }
