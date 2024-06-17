@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player" && tbtwTime <=0 )
         {
             //Destroy(gameObject);
-            collision.gameObject.GetComponent<PlayerController>().takeDame(20);
+            //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
             takeDameEnemy(20);
 
             tbtwTime = 2;
