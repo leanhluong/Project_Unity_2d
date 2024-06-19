@@ -7,8 +7,6 @@ public class EnemyController : MonoBehaviour
     public float moveSpeed = 0.5f;
     private Transform playerTransform;
 
-    public UIController uI;
-
     [SerializeField]
     int maxHealth;
     int currentHealth;
@@ -19,8 +17,6 @@ public class EnemyController : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthBar.UpdateBar(currentHealth, maxHealth);
-
-        uI = GameObject.Find("Canvas").GetComponent<UIController>();
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         if (playerObject == null)
@@ -74,7 +70,6 @@ public class EnemyController : MonoBehaviour
         {
             currentHealth = 0;
             makeDead();
-            uI.IncrementEnemyCountDie();
         }
         healthBar.UpdateBar(currentHealth, maxHealth);
     }
