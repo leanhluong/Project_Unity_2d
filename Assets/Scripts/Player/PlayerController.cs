@@ -97,23 +97,7 @@ public class PlayerController : MonoBehaviour
         //        gameObject.transform.localScale = new Vector3(-3, 3, 1);
         //    }
         //}
-        //if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.A))
-        //{
-
-        //} else if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.A))
-        //{
-
-        //}else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.A))
-        //{
-
-        //}else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
-        //{
-
-        //}
-        //else
-        //{
-
-        //}
+     
     }
     void DropBomb()
     {
