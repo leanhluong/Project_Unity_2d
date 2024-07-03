@@ -16,7 +16,6 @@ public class BombController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -26,7 +25,6 @@ public class BombController : MonoBehaviour
         {
             Explode();
         }
-
     }
 
     void Explode()
@@ -34,13 +32,9 @@ public class BombController : MonoBehaviour
         // Tạo hiệu ứng phát nổ nếu có
         if (explosionEffect != null)
         {
-            //Instantiate(explosionEffect, transform.position, transform.rotation);
             GameObject explosion = Instantiate(explosionEffect, transform.position, transform.rotation);
-
-            Destroy(explosion, 1f); // Tự hủy hiệu ứng phát nổ sau 2 giây (thời gian animation)
-
+            Destroy(explosion, 0.5f); // Tự hủy hiệu ứng phát nổ sau 0.5 giây
         }
-
 
         // Tìm tất cả các đối tượng trong bán kính phát nổ
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, explosionRadius, enemyLayer);
@@ -48,8 +42,13 @@ public class BombController : MonoBehaviour
         // Xử lý các đối tượng bị trúng
         foreach (Collider2D enemy in hitEnemies)
         {
-            // Ví dụ: Destroy kẻ địch
-            Destroy(enemy.gameObject);
+            // Kiểm tra nếu đối tượng có component EnemyController
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
+            if (enemyController != null)
+            {
+                // Gọi hàm takeDameEnemy từ EnemyController
+                enemyController.takeDameEnemy(100);
+            }
         }
 
         // Phát nổ và tự hủy quả bom

@@ -6,11 +6,8 @@ public class GunController : MonoBehaviour
 {
     public GameObject bullet;
     public Transform firePos;
-    public float TimeBtwFire = 0.5f;
-    public float bulletForce = 9;
-
-    //public float speed = 20f;
-    public Vector3 moveInput;
+    public float TimeBtwFire = 0.5f; // thoi gian moi vien dan ban
+    public float bulletSpeed = 9;// toc do dan
 
     private float timebtwFire;
     // Start is called before the first frame update
@@ -22,10 +19,7 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //moveInput.x = Input.GetAxis("Horizontal");
-        //moveInput.y = Input.GetAxis("Vertical");
 
-        //transform.position += moveInput * speed * Time.deltaTime;
         GunRotation();
         timebtwFire -= Time.deltaTime;
         if (Input.GetMouseButton(0) && timebtwFire < 0)
@@ -36,13 +30,13 @@ public class GunController : MonoBehaviour
 
     void GunRotation()
     {
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Vector2 lookDir = mousePos - transform.position;
+        //Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //Vector2 lookDir = mousePos - transform.position;
 
-        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
+        //float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg;
 
-        Quaternion rotation = Quaternion.Euler(0,0,angle);
-        transform.rotation = rotation;
+        //Quaternion rotation = Quaternion.Euler(0,0,angle);
+        //transform.rotation = rotation;
 
         //if(transform.eulerAngles.z > 90 &&  transform.eulerAngles.z < 270)
         //{
@@ -57,10 +51,10 @@ public class GunController : MonoBehaviour
     {
         timebtwFire = TimeBtwFire;
 
-        GameObject bullets = Instantiate(bullet, firePos.position, Quaternion.identity);
+        GameObject bullets = Instantiate(bullet, firePos.position, transform.rotation);
 
         Rigidbody2D rb = bullets.GetComponent<Rigidbody2D>();
 
-        rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
+        rb.AddForce(transform.right * bulletSpeed, ForceMode2D.Impulse);
     }
 }

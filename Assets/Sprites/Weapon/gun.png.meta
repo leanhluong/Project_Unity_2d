@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3434efdbe86bf7e4dbcfdae3cc4bd791
+guid: 06f15103d96a7c841891259d46af1d31
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tank_0
+      name: gun_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 424
-        width: 162
-        height: 304
+        x: 36
+        y: 521
+        width: 411
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff7222ae5e3e7f942bc6dd0fad4fced4
-      internalID: 1361187302
+      spriteID: f6b482071441fe74da2b26bd4244c2ee
+      internalID: -736679217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tank_1
+      name: gun_1
       rect:
         serializedVersion: 2
-        x: 508
-        y: 424
-        width: 162
-        height: 304
+        x: 540
+        y: 495
+        width: 406
+        height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 953acc9be521dec4589442f3d9bf8c53
-      internalID: 1529838671
+      spriteID: 4b91c99d670198742a564c165fea4bcb
+      internalID: 2078135837
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tank_2
+      name: gun_2
       rect:
         serializedVersion: 2
-        x: 741
-        y: 47
-        width: 485
-        height: 614
+        x: 46
+        y: 361
+        width: 403
+        height: 89
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,20 +166,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 93e11f1ac0e30bd49b3c17a76e36b492
-      internalID: -152660070
+      spriteID: a9768c9873915064393079e5b5ae05ad
+      internalID: 917098065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tank_3
+      name: gun_3
       rect:
         serializedVersion: 2
-        x: 1296
-        y: 188
-        width: 233
-        height: 532
+        x: 563
+        y: 324
+        width: 357
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +187,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4a9dcbd2dea5ee47b70cbd9f046d5b8
-      internalID: -502108542
+      spriteID: 6b790ee67250688439317e238c01d9b2
+      internalID: -2005277034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tank_4
+      name: gun_4
       rect:
         serializedVersion: 2
-        x: 53
-        y: 38
-        width: 161
-        height: 305
+        x: 68
+        y: 223
+        width: 357
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,20 +208,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0599a1bfa371084f918c814d327f53b
-      internalID: 697891759
+      spriteID: c02cf342b6eaf6e4d984a849375d25d9
+      internalID: -305655571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tank_5
+      name: gun_5
       rect:
         serializedVersion: 2
-        x: 509
-        y: 38
-        width: 162
-        height: 305
+        x: 538
+        y: 59
+        width: 406
+        height: 217
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51ee2da746591ac4b9db1a6091b94ddf
-      internalID: 1954385019
+      spriteID: 66040e39ba2a6004ab80414708c851ea
+      internalID: 1668211647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gun_6
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 59
+        width: 358
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffeba0e28a473f4081c2c1d4c4a98cf
+      internalID: -165237224
       vertices: []
       indices: 
       edges: []
@@ -246,12 +267,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tank_0: 1361187302
-      tank_1: 1529838671
-      tank_2: -152660070
-      tank_3: -502108542
-      tank_4: 697891759
-      tank_5: 1954385019
+      gun_0: -736679217
+      gun_1: 2078135837
+      gun_2: 917098065
+      gun_3: -2005277034
+      gun_4: -305655571
+      gun_5: 1668211647
+      gun_6: -165237224
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
