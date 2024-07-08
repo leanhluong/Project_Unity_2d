@@ -23,5 +23,14 @@ public class MouseFollow : MonoBehaviour
 
         Vector2 direction = transform.position - mousePos;
         transform.right = -direction;
+
+        if (transform.eulerAngles.z > 90 && transform.eulerAngles.z < 270)
+        {
+            transform.localScale = new Vector3(1, -1, 0);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1, 0);
+        }
     }
 }

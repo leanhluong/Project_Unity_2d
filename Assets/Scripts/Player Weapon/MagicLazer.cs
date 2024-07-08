@@ -6,7 +6,6 @@ public class MagicLazer : MonoBehaviour
 {
     [SerializeField] private float laserGrowTime = 2f;
 
-    private bool isGrowing = true;
     private float laserRange;
     private SpriteRenderer spriteRenderer;
     private CapsuleCollider2D capsuleCollider2D;
@@ -32,7 +31,7 @@ public class MagicLazer : MonoBehaviour
     {
         float timePassed = 0f;
 
-        while (spriteRenderer.size.x < laserRange && isGrowing)
+        while (spriteRenderer.size.x < laserRange )
         {
             timePassed += Time.deltaTime;
             float linearT = timePassed / laserGrowTime;
@@ -47,6 +46,7 @@ public class MagicLazer : MonoBehaviour
             yield return null;
         }
 
+        StartCoroutine(GetComponent<SpriteFade>().SlowFadeRoutine());
     }
 
     private void LaserFaceMouse()

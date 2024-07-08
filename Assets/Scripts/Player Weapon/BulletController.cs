@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,6 +16,17 @@ public class BulletController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        // Kiểm tra nếu bullet va chạm với layer Map
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            // Bạn có thể thêm các hành động như phá hủy viên đạn, tạo hiệu ứng, v.v.
+            Destroy(gameObject);
+        }
 
     }
 
