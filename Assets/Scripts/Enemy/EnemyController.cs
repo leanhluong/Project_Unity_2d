@@ -89,5 +89,12 @@ public class EnemyController : MonoBehaviour
 
             tbtwTime = 2;
         }
+
+        //if (collision.gameObject.tag == "Laser" )
+        //{
+        //    //Destroy(gameObject);
+        //    //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
+        //    takeDameEnemy(2);
+        //}
     }
 }

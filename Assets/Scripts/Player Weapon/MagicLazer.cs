@@ -56,4 +56,5 @@ public class MagicLazer : MonoBehaviour
         Vector2 direction = transform.position - mousePosition;
         transform.right = -direction;
     }
+
 }

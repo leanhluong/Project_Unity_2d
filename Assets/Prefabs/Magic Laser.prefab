@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -8921320837088988865}
   m_Layer: 0
   m_Name: Magic Laser
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a90873593b5b6645a4e7cf8449d0b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGrowTime: 0.22
+  laserGrowTime: 0.3
 --- !u!114 &-8921320837088988865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3ac3adc9074bb4487075d0beb99dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.4
+  fadeTime: 1
