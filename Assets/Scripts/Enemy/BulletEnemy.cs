@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,6 +22,13 @@ public class BulletEnemy : MonoBehaviour
             Destroy(gameObject);
             collision.GetComponent<PlayerController>().takeDame(20);
 
+        }
+
+        // Kiểm tra nếu bullet va chạm với layer Map
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Wall"))
+        {
+            // Bạn có thể thêm các hành động như phá hủy viên đạn, tạo hiệu ứng, v.v.
+            Destroy(gameObject);
         }
     }
 }
