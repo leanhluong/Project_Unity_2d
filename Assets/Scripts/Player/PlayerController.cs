@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -30,7 +30,10 @@ public class PlayerController : MonoBehaviour
     //public GameObject ghostEffect;
     //public float timeGhost;
     //public Coroutine dashEffectCoroutine;
-
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     void Start()
     {
         uI = FindObjectOfType<UIController>();
@@ -46,7 +49,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PlayerMoving();
 
         // Cập nhật thời gian
         timeSinceLastBomb += Time.deltaTime;
@@ -54,51 +56,50 @@ public class PlayerController : MonoBehaviour
         float cooldownRemaining = Mathf.Max(0f, bombCooldown - timeSinceLastBomb);
         cooldownSlider.value = cooldownRemaining;
 
-        if (Input.GetKey(KeyCode.I) &&timeSinceLastBomb >= bombCooldown)
+        if (Input.GetKey(KeyCode.I) && timeSinceLastBomb >= bombCooldown)
         {
             DropBomb();
             timeSinceLastBomb = 0f;
-        }        
-        
+        }
+
         if (Input.GetKeyDown(KeyCode.Space) && _dashTime <= 0 && isDashing == false)
         {
             speed += dashBoost;
             _dashTime = dashTime;
             isDashing = true;
-         
-        } 
-        if(_dashTime <= 0 && isDashing == true)
+
+        }
+        if (_dashTime <= 0 && isDashing == true)
         {
             speed -= dashBoost;
-            isDashing = false ;
-         
-        } else
+            isDashing = false;
+
+        }
+        else
         {
             _dashTime -= Time.deltaTime;
         }
 
     }
 
-    void PlayerMoving()
+    float moveX = 0f;
+    float moveY = 0f;
+
+    private void FixedUpdate()
     {
-        moveInput.x = Input.GetAxis("Horizontal");
-        moveInput.y = Input.GetAxis("Vertical");
+        moveX = Input.GetAxis("Horizontal");
+        moveY = Input.GetAxis("Vertical");
 
-        transform.position += moveInput * speed * Time.deltaTime;
-        //if (moveInput.x != 0 || moveInput.y != 0)
-        //{
-        //    if (moveInput.x > 0)
-        //    {
-        //        gameObject.transform.localScale = new Vector3(3, 3, 1);
-        //    }
-
-        //    else if (moveInput.x < 0)
-        //    {
-        //        gameObject.transform.localScale = new Vector3(-3, 3, 1);
-        //    }
-        //}
-     
+        if (moveX == 0f && moveY == 0f)
+        {
+            rb.velocity = Vector2.zero;
+        }
+        else
+        {
+            rb.velocity = new Vector2(moveX * speed, moveY * speed);
+        }
     }
+
     void DropBomb()
     {
         // Lấy vị trí hiện tại của player
@@ -110,7 +111,7 @@ public class PlayerController : MonoBehaviour
     public void takeDame(int damege)
     {
         currentHealth -= damege;
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
             currentHealth = 0;
             Ondeath.Invoke();
@@ -119,7 +120,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Death()
     {
-        Destroy(gameObject);
         uI.GameOver();
     }
 

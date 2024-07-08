@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -12,6 +10,14 @@ public class EnemyController : MonoBehaviour
     int currentHealth;
     public HealthBar healthBar;
     float tbtwTime = 2f;
+
+    SpriteRenderer sr;
+
+    private void Awake()
+    {
+        sr = GetComponent<SpriteRenderer>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +37,6 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("No player");
         }
-
-
     }
 
     // Update is called once per frame
@@ -42,22 +46,16 @@ public class EnemyController : MonoBehaviour
         {
             Vector3 direction = (playerTransform.position - transform.position).normalized;
             transform.Translate(direction * moveSpeed * Time.deltaTime);
+            sr.flipX = !(Mathf.Abs(transform.position.x) - Mathf.Abs(playerTransform.position.x) > 0);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
-        {
-            //Destroy(gameObject);
-            collision.GetComponent<PlayerController>().takeDame(20);
-            takeDameEnemy(20);
+        if (collision.CompareTag("Player")) collision.GetComponent<PlayerController>().takeDame(20);
 
-
-        }
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.CompareTag("Bullet"))
         {
-            
             takeDameEnemy(20);
             Destroy(collision.gameObject);
         }
@@ -74,19 +72,14 @@ public class EnemyController : MonoBehaviour
         healthBar.UpdateBar(currentHealth, maxHealth);
     }
 
-    void makeDead()
-    {
-        Destroy(gameObject);
-    }
+    void makeDead() => Destroy(gameObject);
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         tbtwTime -= Time.deltaTime;
-        if (collision.gameObject.tag == "Player" && tbtwTime <=0 )
+        if (collision.gameObject.CompareTag("Player") && tbtwTime <= 0)
         {
-            //Destroy(gameObject);
-            //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
-            takeDameEnemy(20);
-
+            collision.gameObject.GetComponent<PlayerController>().takeDame(20);
             tbtwTime = 2;
         }
     }

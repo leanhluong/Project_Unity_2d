@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
@@ -9,6 +8,7 @@ public class EnemyShooting : MonoBehaviour
     public int numberOfBullets = 12; // Số lượng đạn
     public float shootInterval = 2f; // Thời gian giữa các lần bắn
     public float startDelay = 0f;    // Thời gian chờ trước khi bắt đầu bắn
+
 
     private void Start()
     {

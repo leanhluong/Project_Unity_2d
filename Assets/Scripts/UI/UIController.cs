@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -22,8 +19,7 @@ public class UIController : MonoBehaviour
 
     public void GameOver( )
     {
-          gameoverPanel.SetActive(true);
-          Time.timeScale = 0;
+        SceneManager.LoadScene("GameOver");
     }
     public void Retry()
     {
