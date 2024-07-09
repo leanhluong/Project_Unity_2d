@@ -1,18 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class OptionMenu : MonoBehaviour
+namespace MenuConfiguration
 {
-    // Start is called before the first frame update
-    void Start()
+    public class OptionMenu : MonoBehaviour
     {
-        
-    }
+        public Button soundButton;
+        public Button displayButton;
+        public Button mouseAndKeyBoardButton;
+        public Button backButton;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        // Start is called before the first frame update
+        void Start()
+        {
+            backButton.onClick.AddListener(MenuConfiguration.Instance.BackToMenu);
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }

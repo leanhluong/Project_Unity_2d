@@ -11,7 +11,31 @@ public class InGameMenuConfiguration : MonoBehaviour
     public Button settingsButton;
     public Button exitButton;
 
-    
-    
+    private bool isOn = false;
+
+    private void Start()
+    {
+        continueButton.onClick.AddListener(OnContinueButtonClick);
+        exitButton.onClick.AddListener(OnExitButtonClick);
+    }
+
+    public void SetStatusPanel()
+    {
+        gameObject.SetActive(!isOn);
+        isOn = !isOn;
+    }
+
+    private void OnContinueButtonClick()
+    {
+        SetStatusPanel();
+    }
+
+    private void OnExitButtonClick()
+    {
+        continueButton.onClick.RemoveAllListeners();
+        exitButton.onClick.RemoveAllListeners();
+        Loader.Instance.LoadScene("Menu");
+    }
+
 
 }

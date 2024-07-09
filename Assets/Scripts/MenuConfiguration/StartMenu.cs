@@ -8,7 +8,6 @@ public class StartMenu : MonoBehaviour
 {
     public Button continueButton;
     public Button newGameButton;
-    public Button loadGameButton;
     public Button optionButton;
     public Button exitButton;
 
@@ -16,7 +15,6 @@ public class StartMenu : MonoBehaviour
     {
         continueButton.onClick.AddListener(ContinueGame);
         newGameButton.onClick.AddListener(NewGame);
-        loadGameButton.onClick.AddListener(OpenLoadGamePanel);
         optionButton.onClick.AddListener(OpenOptionsPanel);
         exitButton.onClick.AddListener(ExitGame);
     }
@@ -31,18 +29,13 @@ public class StartMenu : MonoBehaviour
         Loader.Instance.LoadScene("Game");
     }
 
-    private void OpenLoadGamePanel()
-    {
-        MenuControl.Instance.SetPage(MenuControl.PageType.SaveGame);
-    }
-
     private void OpenOptionsPanel()
     {
-        MenuControl.Instance.SetPage(MenuControl.PageType.Option);
+        MenuConfiguration.MenuConfiguration.Instance.SetPage(MenuConfiguration.MenuConfiguration.PageType.Option);
     }
 
     private void ExitGame()
     {
-        MenuControl.Instance.ExitGame();
+        MenuConfiguration.MenuConfiguration.Instance.ExitGame();
     }
 }
