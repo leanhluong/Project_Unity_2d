@@ -17,6 +17,9 @@ public class ActiveInventory : MonoBehaviour
     {
         // Register the callback for the keyboard input
         playerControls.Inventory.Keyboard.performed += ctx => ToggleActiveSlot((int)ctx.ReadValue<float>());
+
+        ToggleActiveSlot(1);
+
     }
 
     private void OnEnable()
