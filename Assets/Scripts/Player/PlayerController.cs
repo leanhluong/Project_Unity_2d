@@ -62,25 +62,6 @@ public class PlayerController : MonoBehaviour
         Ondeath.RemoveListener(Death);
     }
 
-    //void StopDashEffect()
-    //{
-    //    if(dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
-    //}
 
-    //void StartDashEffect()
-    //{
-    //    if(dashEffectCoroutine != null) StopCoroutine(dashEffectCoroutine);
-    //    dashEffectCoroutine = StartCoroutine(DashEffectCoroutine());
-    //}
-
-    //IEnumerator DashEffectCoroutine()
-    //{
-    //    while (true)
-    //    {
-    //        GameObject ghost = Instantiate(ghostEffect, transform.position, transform.rotation);
-
-    //        yield return new WaitForSeconds(timeGhost);
-    //    }
-    //}
 
 }

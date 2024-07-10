@@ -78,23 +78,44 @@ public class EnemyController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    tbtwTime -= Time.deltaTime;
+    //    if (collision.gameObject.tag == "Player" && tbtwTime <=0 )
+    //    {
+    //        //Destroy(gameObject);
+    //        //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
+    //        takeDameEnemy(20);
+
+    //        tbtwTime = 2;
+    //    }
+
+    //if (collision.gameObject.tag == "Laser" )
+    //{
+    //    //Destroy(gameObject);
+    //    //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
+    //    takeDameEnemy(2);
+    //}
+    //}
+
+    private void OnCollisionStay2D(Collision2D collision)
     {
         tbtwTime -= Time.deltaTime;
-        if (collision.gameObject.tag == "Player" && tbtwTime <=0 )
+        if (collision.gameObject.tag == "Player" && tbtwTime <= 0)
         {
             //Destroy(gameObject);
-            //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
+            collision.gameObject.GetComponent<PlayerController>().takeDame(20);
             takeDameEnemy(20);
 
             tbtwTime = 2;
         }
 
-        //if (collision.gameObject.tag == "Laser" )
-        //{
-        //    //Destroy(gameObject);
-        //    //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
-        //    takeDameEnemy(2);
-        //}
+        if (collision.gameObject.tag == "Laser")
+        {
+            //Destroy(gameObject);
+            
+            //collision.gameObject.GetComponent<PlayerController>().takeDame(20);
+            takeDameEnemy(2);
+        }
     }
 }
