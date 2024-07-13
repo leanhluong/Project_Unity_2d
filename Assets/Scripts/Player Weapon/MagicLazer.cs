@@ -57,4 +57,14 @@ public class MagicLazer : MonoBehaviour
         transform.right = -direction;
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            //Destroy(gameObject);
+            collision.gameObject.GetComponent<EnemyController>().takeDameEnemy(20);
+
+        }
+    }
+
 }

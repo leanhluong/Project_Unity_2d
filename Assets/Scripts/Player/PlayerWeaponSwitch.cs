@@ -15,7 +15,7 @@ public class PlayerWeaponSwitch : MonoBehaviour
     void Start()
     {
         // Ban đầu không kích hoạt vũ khí nào
-        weapon1.SetActive(false);
+        weapon1.SetActive(true);
         weapon2.SetActive(false);
         weapon3.SetActive(false);
         weapon4.SetActive(false);

@@ -4,8 +4,6 @@ using UnityEngine.UI;
 public class BombSkillCooldown : MonoBehaviour
 {
     public Image countdownImage; // Tham chiếu đến UI Image đếm ngược
-    public float cooldownTime = 2f; // Thời gian hồi chiêu
-    private float cooldownTimer;
     private bool isCooldown = false;
 
     public GameObject bombPrefab; // Prefab của quả bom
@@ -13,55 +11,40 @@ public class BombSkillCooldown : MonoBehaviour
     private float timeSinceLastBomb; // Biến đếm thời gian từ lần đặt bom cuối
     private UIController uI;
 
+
+
     void Start()
     {
         uI = FindObjectOfType<UIController>();
 
         // Khởi tạo timer
-        cooldownTimer = cooldownTime;
+        countdownImage.fillAmount = 0;
     }
 
     void Update()
     {
-        if (isCooldown)
-        {
-            cooldownTimer -= Time.deltaTime;
-            UpdateCountdownImage();
 
-            if (cooldownTimer <= 0)
-            {
-                isCooldown = false;
-                cooldownTimer = cooldownTime; // Đặt lại timer khi hết thời gian hồi chiêu
-                UpdateCountdownImage();
-            }
-        }
-
-        // Cập nhật thời gian
         timeSinceLastBomb += Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.I) && timeSinceLastBomb >= cooldownTime)
+        if (Input.GetKey(KeyCode.C) && timeSinceLastBomb >= bombCooldown && isCooldown == false)
         {
             DropBomb();
-            StartCooldown();
-
             timeSinceLastBomb = 0f;
-        }
-    }
-
-    void UpdateCountdownImage()
-    {
-        float fillAmount = cooldownTimer / cooldownTime;
-        countdownImage.fillAmount = fillAmount;
-    }
-
-    public void StartCooldown()
-    {
-        if (!isCooldown)
-        {
+            //cd skill
             isCooldown = true;
-            cooldownTimer = cooldownTime;
+            countdownImage.fillAmount = 1;
+        }
+        // cd skill
+        if (isCooldown)
+        {
+            countdownImage.fillAmount -= 1 / bombCooldown * Time.deltaTime;
+            if(countdownImage.fillAmount <= 0)
+            {
+                countdownImage.fillAmount = 0;
+                isCooldown = false;
+            }
         }
     }
+
 
     void DropBomb()
     {
