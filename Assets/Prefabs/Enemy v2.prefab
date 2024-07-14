@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 3273987458869429033}
   - component: {fileID: 8523941091122492020}
+  - component: {fileID: 605868006117475427}
   m_Layer: 6
   m_Name: img
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3273987458869429033
 Transform:
   m_ObjectHideFlags: 0
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &605868006117475427
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2671164531565004401}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1218ea773773fa64b98d3edad840d23b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3372679835642497748
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +195,7 @@ GameObject:
   - component: {fileID: 5435008974653421521}
   - component: {fileID: 2860622423170235434}
   - component: {fileID: 3090737265043702744}
+  - component: {fileID: 2385560932717575408}
   m_Layer: 6
   m_Name: Enemy v2
   m_TagString: Enemy
@@ -190,7 +213,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.6, y: -67, z: -0.004133385}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6774865100002893618}
@@ -238,7 +261,7 @@ SpriteRenderer:
   m_SortingLayerID: -342820749
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -40091942, guid: 51d038a01f77c13499a035cd2e2aa603, type: 3}
+  m_Sprite: {fileID: 46649734, guid: 4122f6275a1c7d2478d44aa21b36eaed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -323,18 +346,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18348098, y: 0.11008549}
+  m_Offset: {x: 0.012786269, y: -0.0012370348}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6, y: 0.66}
+    oldSize: {x: 0.37, y: 0.81}
     newSize: {x: 1.99, y: 2.33}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.4912686, y: 4.0747833}
+  m_Size: {x: 0.48745847, y: 0.85384226}
   m_EdgeRadius: 0
 --- !u!114 &3090737265043702744
 MonoBehaviour:
@@ -352,6 +375,27 @@ MonoBehaviour:
   shootingRange: 10
   shootingInterval: 0.2
   moveSpeed: 5
+--- !u!95 &2385560932717575408
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5246082583185470980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 987813cad1a73394e89409cc0fbdca85, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7168858000689457240
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +475,7 @@ RectTransform:
   m_GameObject: {fileID: 8663543939751870734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.12, y: 0.15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6598727804515939656}
@@ -439,7 +483,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.07, y: 0.73}
+  m_AnchoredPosition: {x: -0, y: 0.17}
   m_SizeDelta: {x: 8, y: 8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &5115224727131159145
