@@ -1,6 +1,3 @@
-using MenuConfiguration;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,7 +18,7 @@ public class StartMenu : MonoBehaviour
 
     private void ContinueGame()
     {
-
+        Loader.Instance.ContinueGame();
     }
 
     private void NewGame()
@@ -38,4 +35,5 @@ public class StartMenu : MonoBehaviour
     {
         MenuConfiguration.MenuConfiguration.Instance.ExitGame();
     }
+
 }

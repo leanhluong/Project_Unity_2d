@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,8 +13,9 @@ public class PlayerController : MonoBehaviour
     private UIController uI;
 
     [SerializeField]
-    int maxHealth;
-    int currentHealth;
+    float maxHealth;
+    [NonSerialized]
+    public float currentHealth;
     public HealthBar healthBar;
     public UnityEvent Ondeath;
 
@@ -25,8 +27,7 @@ public class PlayerController : MonoBehaviour
     {
         uI = FindObjectOfType<UIController>();
         currentHealth = maxHealth;
-        healthBar.UpdateBar(currentHealth, maxHealth);
-
+        UpdateHealthBar();
     }
 
     // Update is called once per frame
@@ -34,8 +35,6 @@ public class PlayerController : MonoBehaviour
     {
 
     }
-
-
 
     public void takeDame(int damege)
     {
@@ -62,6 +61,8 @@ public class PlayerController : MonoBehaviour
         Ondeath.RemoveListener(Death);
     }
 
-
-
+    public void UpdateHealthBar()
+    {
+        healthBar.UpdateBar(currentHealth, maxHealth);
+    }
 }

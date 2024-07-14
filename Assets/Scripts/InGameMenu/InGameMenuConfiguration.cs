@@ -34,6 +34,7 @@ public class InGameMenuConfiguration : MonoBehaviour
     {
         continueButton.onClick.RemoveAllListeners();
         exitButton.onClick.RemoveAllListeners();
+        Loader.Instance.SaveToJson();
         Loader.Instance.LoadScene("Menu");
     }
 

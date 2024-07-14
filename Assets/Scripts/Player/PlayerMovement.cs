@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public float timeGhost = 0.04f;
     private Coroutine dashEffectCoroutine;
 
+    public bool isPlay;
 
     // Start is called before the first frame update
     void Start()
